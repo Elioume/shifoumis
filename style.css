@@ -307,7 +307,9 @@ a{
 .symbole{
   cursor: pointer;
 }
-
+.txtNoir{
+  color: black;
+}
 .symbole:hover {
   background-color: rgb(2, 188, 255);
   border-radius: 80px;

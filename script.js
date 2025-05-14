@@ -51,30 +51,52 @@ function convertirSymbole(e){
 function resultat(){
     randomNumber = nombreOrdi()
     if (symbole === 1 && randomNumber === 2) {
+        message.classList.remove("txtVert")
+        message.classList.remove("txtNoir")
+        message.classList.add("txtRouge")
         message.innerHTML = `L'Ordinateur à fait FEUILLE, L'Ordinateur à gagner`
         scoreOrdinateur++
     }
     else if (symbole === 1 && randomNumber === 3) {
+        message.classList.remove("txtRouge")
+        message.classList.remove("txtNoir")
+        message.classList.add("txtVert")
         message.innerHTML = `L'Ordinateur à fait CISEAUX, Joueur à gagner`
         scoreJoueur++
     }
     else if (symbole === 2 && randomNumber === 1) {
+        message.classList.remove("txtRouge")
+        message.classList.remove("txtNoir")
+        message.classList.add("txtVert")
         message.innerHTML = `L'Ordinateur à fait PIERRE, Joueur à gagner`
+        
         scoreJoueur++
     }
     else if (symbole === 2 && randomNumber === 3) {
+        message.classList.remove("txtVert")
+        message.classList.remove("txtNoir")
+        message.classList.add("txtRouge")
         message.innerHTML = `L'Ordinateur à fait CISEAUX, L'Ordinateur à gagner`
         scoreOrdinateur++
     }
     else if (symbole === 3 && randomNumber === 1) {
+        message.classList.remove("txtVert")
+        message.classList.remove("txtNoir")
+        message.classList.add("txtRouge")
         message.innerHTML = `L'Ordinateur à fait PIERRE, L'Ordinateur à gagner`
         scoreOrdinateur++
     }
     else if (symbole === 3 && randomNumber === 2) {
+        message.classList.remove("txtRouge")
+        message.classList.remove("txtNoir")
+        message.classList.add("txtVert")
         message.innerHTML = `L'Ordinateur à fait FEUILLE, Joueur à gagner`
         scoreJoueur++
     }
     else{
+        message.classList.remove("txtVert")
+        message.classList.remove("txtRouge")
+        message.classList.add("txtNoir")
         message.innerHTML = `égalité`
     }
     majScore()
