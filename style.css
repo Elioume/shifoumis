@@ -71,7 +71,12 @@
 .align-end{
     align-items: flex-end;
 }
-
+.justify-start{
+  justify-content: flex-start;
+}
+.justify-end{
+  justify-content: flex-end;
+}
 .alternate>div:nth-child(2n){
     flex-direction: row-reverse;
 }
@@ -254,6 +259,7 @@ h4{
 
 p{
     line-height: 1.5;
+    font-size: 20px;
 }
 
 a{
@@ -282,3 +288,27 @@ a{
 /* --------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------- */
 
+#messageResultat{
+  font-size: 30px;
+}
+
+.txtVert{
+  color: green;
+}
+
+.txtRouge{
+  color: red;
+}
+
+.txtOrange{
+  color: orange;
+}
+
+.symbole{
+  cursor: pointer;
+}
+
+.symbole:hover {
+  background-color: rgb(2, 188, 255);
+  border-radius: 80px;
+}

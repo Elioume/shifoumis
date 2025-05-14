@@ -31,10 +31,10 @@ function convertirSymbole(e){
     let boutonid = e.target.id
     // affecter le bon numero selon l'id du bouton cliqué
     if(boutonid ==="pierre"){
-        symbole =1
+        symbole = 1
     }
     else if(boutonid === "feuille"){
-        symbole =2
+        symbole = 2
     }
     else if(boutonid === "ciseaux"){
         symbole = 3
@@ -63,11 +63,11 @@ function resultat(){
         scoreJoueur++
     }
     else if (symbole === 2 && randomNumber === 3) {
-        message.innerHTML = `L'Ordinateur à fait CISEAUX, Ordi à gagner`
+        message.innerHTML = `L'Ordinateur à fait CISEAUX, L'Ordinateur à gagner`
         scoreOrdinateur++
     }
     else if (symbole === 3 && randomNumber === 1) {
-        message.innerHTML = `L'Ordinateur à fait PIERRE, Ordi à gagner`
+        message.innerHTML = `L'Ordinateur à fait PIERRE, L'Ordinateur à gagner`
         scoreOrdinateur++
     }
     else if (symbole === 3 && randomNumber === 2) {
@@ -75,7 +75,7 @@ function resultat(){
         scoreJoueur++
     }
     else{
-        message.innerHTML = `egalité`
+        message.innerHTML = `égalité`
     }
     majScore()
 }
