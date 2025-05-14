@@ -2,9 +2,15 @@ let pierre = document.getElementById("pierre");
 let feuille = document.getElementById("feuille");
 let ciseaux = document.getElementById("ciseaux");
 let message = document.getElementById("messageResultat");
+let scoreJ = document.getElementById("scoreJ")
+let scoreO = document.getElementById("scoreO")
 
 let symbole = 0;
-let randomNumber = 0
+let randomNumber = 0;
+
+let scoreJoueur = 0;
+let scoreOrdinateur = 0;
+
 /*  Role : créer un nombre aléatoire entre 1 et 3
     Paramètre : math.random
     Return : nombre aléatoire
@@ -14,61 +20,67 @@ function nombreOrdi (){
     return randomNumber
 }
 
-// for (i=0; i<=50; i++){
-//     console.log(nombreAleatoire())
-// }
+// Role: affecter le bon symbole au joueur en fonction du bouton sur lequel il a cliqué
+let buttons = document.querySelectorAll(".symbole")
 
-/*  Role : Donner un nombre entre 1 et 3 au joueur en fonction du symbole choisi
-    Paramètre : le click du joueur
-    Return : nombre joueur 
-*/
-function nombreJoueur (){
-    randomNumber= nombreOrdi()
-    pierre.addEventListener("click", (e) => {
-        symbole = 1
-        console.log(e)
-        resultat()
-    })
-    feuille.addEventListener("click", (e) => {
-        symbole = 2
-        console.log(e)
-        resultat()
-    })
-    ciseaux.addEventListener("click", (e) => {
+buttons.forEach(button=>{
+    button.addEventListener("click", convertirSymbole)
+})
+
+function convertirSymbole(e){
+    let boutonid = e.target.id
+    // affecter le bon numero selon l'id du bouton cliqué
+    if(boutonid ==="pierre"){
+        symbole =1
+    }
+    else if(boutonid === "feuille"){
+        symbole =2
+    }
+    else if(boutonid === "ciseaux"){
         symbole = 3
-        console.log(e)
-        resultat()
-    })
+    }
+
+    // Verfier le resultat
+    resultat()
+    console.log(boutonid)
 }
-console.log(nombreJoueur())
-// 1: pierre  2 feuilles  3: ciseau
+
+/*  1: pierre
+    2 feuille
+    3: ciseaux */
 function resultat(){
+    randomNumber = nombreOrdi()
     if (symbole === 1 && randomNumber === 2) {
-        console.log("Ordi à gagner")
-        message.innerHTML = 'Ordi à gagner'
+        message.innerHTML = `L'Ordinateur à fait FEUILLE, L'Ordinateur à gagner`
+        scoreOrdinateur++
     }
     else if (symbole === 1 && randomNumber === 3) {
-        console.log("Joueur à gagner")
-        message.innerHTML = 'Joueur à gagner'
+        message.innerHTML = `L'Ordinateur à fait CISEAUX, Joueur à gagner`
+        scoreJoueur++
     }
     else if (symbole === 2 && randomNumber === 1) {
-        console.log("Joueur à gagner")
-        message.innerHTML = 'Joueur à gagner'
+        message.innerHTML = `L'Ordinateur à fait PIERRE, Joueur à gagner`
+        scoreJoueur++
     }
     else if (symbole === 2 && randomNumber === 3) {
-        console.log("Ordi à gagner")
-        message.innerHTML = 'Ordi à gagner'
+        message.innerHTML = `L'Ordinateur à fait CISEAUX, Ordi à gagner`
+        scoreOrdinateur++
     }
     else if (symbole === 3 && randomNumber === 1) {
-        console.log("Ordi à gagner")
-        message.innerHTML = 'Ordi à gagner'
+        message.innerHTML = `L'Ordinateur à fait PIERRE, Ordi à gagner`
+        scoreOrdinateur++
     }
     else if (symbole === 3 && randomNumber === 2) {
-        console.log("Joueur à gagner")
-        message.innerHTML = 'Joueur à gagner'
+        message.innerHTML = `L'Ordinateur à fait FEUILLE, Joueur à gagner`
+        scoreJoueur++
     }
     else{
-        console.log("égaliter")
-        message.innerHTML = 'egalité'
+        message.innerHTML = `egalité`
     }
+    majScore()
+}
+
+function majScore (){
+    scoreJ.innerHTML=`Vous : ${scoreJoueur} points`
+    scoreO.innerHTML=`Ordinateur : ${scoreOrdinateur} points`
 }
